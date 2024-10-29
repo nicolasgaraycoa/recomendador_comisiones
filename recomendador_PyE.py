@@ -27,7 +27,7 @@ with st.sidebar:
     peso_economica = st.slider("Participación línea económica: ", 0, 10, 0)
 
 
-data = pd.read_csv('C:/Users/nicol/Documents/Encanteria/comercial/dashboards/recomendador_porcentajes_equipos/precios_costos.csv')
+data = pd.read_csv('precios_costos.csv')
 
 presentaciones = pd.DataFrame({
     'categoria' : ['1/2L', '4oz', '5L'],
