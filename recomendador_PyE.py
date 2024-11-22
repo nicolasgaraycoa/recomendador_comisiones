@@ -74,7 +74,7 @@ data = data.groupby(['comision']).agg(
 
 data['gasto_logistico'] = logistica['gasto_logistico'][0]*ordenes
 data['trade_marketing'] = data['venta_neta']*0.10
-data['gasto_fijo'] = data['venta_neta']*0.25
+data['gasto_fijo'] = data['venta_neta']*(10000/(data['venta_neta']+40000))
 data['EBITDA'] = data['venta_neta']-data['cogs']-data['gasto_logistico']-data['trade_marketing']-data['gasto_fijo']
 data['depreciacion'] = np.where((data['EBITDA']/data['venta_neta'])>0.1, ((data['EBITDA']/data['venta_neta'])-0.1)*data['venta_neta'], 0)
 data['equipo']  = round(data['depreciacion']*12*4,-1)
