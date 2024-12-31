@@ -78,7 +78,7 @@ data['gasto_fijo'] = data['venta_neta']*(10000/(data['venta_neta']+40000))
 data['EBITDA'] = data['venta_neta']-data['cogs']-data['gasto_logistico']-data['trade_marketing']-data['gasto_fijo']
 data['depreciacion'] = np.where((data['EBITDA']/data['venta_neta'])>0.1, ((data['EBITDA']/data['venta_neta'])-0.1)*data['venta_neta'], 0)
 data['equipo']  = round(data['depreciacion']*12*4,-1)
-data = data[data['EBITDA']>0.08]
+data = data[data['EBITDA']>0.1]
 data = data[['equipo']]
 
 st.dataframe(data)
